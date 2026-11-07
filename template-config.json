@@ -5,7 +5,7 @@
       "icon": "https://raw.githubusercontent.com/NousResearch/hermes-agent/v0.22.2/apps/desktop/assets/icon.png",
       "name": "Hermes Agent",
       "source": {
-        "image": "nousresearch/hermes-agent:v0.22.2"
+        "image": "nousresearch/hermes-agent:v0.23.0"
       },
       "deploy": {
         "startCommand": "/opt/hermes/docker/entrypoint-dispatch.sh sh -c 'k=\"(TELEGRAM_BOT|DISCORD_BOT|SLACK_BOT|MATTERMOST|WEIXIN)_TOKEN|MATRIX_(ACCESS_TOKEN|PASSWORD)|(EMAIL|BLUEBUBBLES)_PASSWORD\"; until env | cat - /opt/data/.env /opt/data/profiles/*/.env 2>/dev/null | grep -Eq \"^($k)=.+\" || grep -qs \"\\\"id\\\"\" /opt/data/cron/jobs.json /opt/data/profiles/*/cron/jobs.json; do sleep 30; done; exec hermes gateway run'",
